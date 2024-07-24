@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caculator</title>
+    
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style >
+        *{
+            margin: 0%;
+            padding:0%;
+        }
+        .container{
+            
+            width: 400px;
+            justify-content:space-around ;
+            justify-content: space-between;
+            word-spacing: 10px;
+            border-radius: 35px;
+            background: cyan;
+            border:solid black;
+            padding: 10px;
+            font: bold;
+         font-weight: bold;
+         font-style: italic;
+        }
+        .btn:hover{
+            background:red;
+        }
+        input{
+             text-align: right;
+             font-size: 40px;
+             font: bold;
+             font-style: italic;
+             border-radius: 10px;
+        }
+        body{
+            background:white;
+        }
+        .display{
+            height: 100px;
+            width: 360px;
+            background:white;
+            border-radius: 25px;
+            justify-content: center;
+            margin-left: -27px;
+            margin-top: 20px;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font: bold;
+            font-style: italic;
+        }
+        button{
+         width: 60px;
+         justify-content: space-between;
+         margin-top: 15px;
+         margin-left: 5px;
+         box-shadow: 2px -2px 1px 2px black;
+         font: bold;
+         font-size: 20px;   
+        }
+     
+    </style>
+</head>
+<body>
+    <h1 class="text-center ">Calculator</h1>
+    <div class="container  ">
+        <ul class="">
+           <div >
+            <input type="display"class="display"id="input" placeholder="0">
+        </div>
+
+            <div>
+                    <button type="button" class="btn btn-info btn-lg" id="Ac">Ac</button>
+
+                    <button type="button" class="btn btn-info btn-lg" id="">%</button>
+
+                    <button type="button" class="btn btn-info btn-lg" id="Del">Del</button>
+
+                    <button type="button" class="btn btn-warning btn-lg operator">/</button>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary btn-lg">7</button>
+
+                <button type="button" class="btn btn-primary btn-lg">8</button>
+
+                <button type="button" class="btn btn-primary btn-lg">9</button>
+
+                <button type="button" class="btn btn-warning btn-lg operator">-</button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary btn-lg ">4</button>
+
+            <button type="button" class="btn btn-primary btn-lg">5</button>
+
+            <button type="button" class="btn btn-primary btn-lg">6</button>
+
+            <button type="button" class="btn btn-warning btn-lg operator">*</button>
+    </div>
+    <div>
+        <button type="button" class="btn btn-primary btn-lg">1</button>
+
+        <button type="button" class="btn btn-primary btn-lg">2</button>
+
+        <button type="button" class="btn btn-primary btn-lg">3</button>
+
+        <button type="button" class="btn btn-warning btn-lg operator">+</button>
+</div>
+<div>
+    <button type="button" class="btn btn-primary btn-lg ">00</button>
+
+    <button type="button" class="btn btn-primary btn-lg">0</button>
+
+    <button type="button" class="btn btn-primary btn-lg">.</button>
+
+    <button type="button" class="btn btn-warning btn-lg">=</button>
+
+</div>          
+      </ul>
+    </div>
+</body>
+
+<script  >
+    let input=document.getElementById('input');
+    let buttons=document.querySelectorAll('button');
+    let string="";
+    
+          let arr=Array.from(buttons);
+          arr.forEach(button=>{
+  
+       button.addEventListener('click',(e)=>{
+           if(e.target.innerHTML=='='){
+               string=eval(string);
+               input.value=string;        
+           }
+
+           else if(e.target.innerHTML=='Ac'){
+            string="";
+           input.value=string;  
+          }
+
+          else if(e.target.innerHTML=='Del'){
+            
+           string=string.substring(0,string.length-1);  
+           input.value=string;
+          }
+          
+          else{
+            string+=e.target.innerHTML;
+            input.value=string;
+          }
+    })
+ 
+    
+    
+   })
+   </script>
+</html>
